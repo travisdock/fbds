@@ -8,6 +8,10 @@ gem "puma"
 
 gem "sqlite3"
 
+gem 'bootstrap', '~> 5.3.2'
+gem 'dartsass-sprockets'
+gem 'jquery-rails'
+
 gem "sprockets-rails"
 
 # Start debugger with binding.b [https://github.com/ruby/debug]

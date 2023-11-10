@@ -10,6 +10,11 @@ ARG UID=1000
 ARG GID=1000
 
 RUN apt-get update \
+ && apt-get install -y --no-install-recommends build-essential git libpq-dev curl \
+ && curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key -o /etc/apt/keyrings/nodesource.asc \
+ && echo 'deb [signed-by=/etc/apt/keyrings/nodesource.asc] https://deb.nodesource.com/node_20.x nodistro main' | tee /etc/apt/sources.list.d/nodesource.list \
+ && apt-get update && apt-get install -y --no-install-recommends nodejs \
+ && corepack enable \
  && rm -rf /var/lib/apt/lists/* /usr/share/doc /usr/share/man \
  && apt-get clean \
  && groupadd -g "${GID}" ruby \
